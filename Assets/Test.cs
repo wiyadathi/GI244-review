@@ -11,14 +11,8 @@ public class Test : MonoBehaviour
     [SerializeField] 
     List<string> inventoryList = new List<string>();
     
-    
-
-    // Start is called before the first frame update
     void Start()
     {
-        
-        
-        
         Debug.Log("Initial Inventory: ");
         DisplayInventory(inventoryArray);
 
@@ -55,11 +49,4 @@ public class Test : MonoBehaviour
         }
     }
     
-    
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
