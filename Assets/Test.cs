@@ -13,20 +13,16 @@ public class Test : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("Initial Inventory: ");
-        DisplayInventory(inventoryArray);
+        DisplayInventoryArray(inventoryArray);
 
         inventoryList = ConvertArrayToList(inventoryArray);
         inventoryList.Add("Helmet");
-        DisplayList(inventoryList);
-    }
+        DisplayInventoryList(inventoryList);
 
-    void DisplayInventory(string[] inventory)
-    {
-        for (int i = 0; i < inventory.Length; i++)
-        {
-            Debug.Log($"{inventory[i]}, ");
-        }
+        inventoryList.Remove("Shield");
+        
+        DisplayInventory(inventoryList);
+        DisplayInventory(inventoryArray);
     }
 
     List<string> ConvertArrayToList(string[] array)
@@ -39,13 +35,36 @@ public class Test : MonoBehaviour
 
         return tempList;
     }
-
-    void DisplayList(List<string> list)
+    
+    void DisplayInventoryArray(string[] inventory)
     {
-        Debug.Log("Inventory List: ");
+        Debug.Log("**Inventory Array: ");
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            Debug.Log($"{i+1}. {inventory[i]}, ");
+        }
+    }
+
+    void DisplayInventoryList(List<string> list)
+    {
+        Debug.Log("**Inventory List: ");
+        int i = 1;
         foreach (var s in list)
         {
-            Debug.Log($"{s},");
+            Debug.Log($"{i}. {s},");
+            i++;
+        }
+    }
+    
+    //display elements for both array and list
+    void DisplayInventory(IEnumerable<string> inventory)
+    {
+        Debug.Log("***Player Inventory: ");
+        int i = 1;
+        foreach (var item in inventory)
+        {
+            Debug.Log($"{i}. {item},");
+            i++;
         }
     }
     
